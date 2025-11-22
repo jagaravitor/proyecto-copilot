@@ -28,8 +28,14 @@ function navigateToPost(postId) {
         activeLink.classList.add('active');
     }
 
-    // Scroll suave al inicio
+    // Scroll suave al inicio (muy arriba para que se vea todo)
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // También scroll del contenedor principal si es necesario
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+        mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 /**
