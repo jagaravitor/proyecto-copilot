@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Técnico - Grafos | Estructura de Datos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <span>Blog Técnico: Grafos</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="nav-link active" data-post="inicio">Inicio</a></li>
+                <li><a href="#post1" class="nav-link" data-post="post1">Introducción</a></li>
+                <li><a href="#post2" class="nav-link" data-post="post2">Representación</a></li>
+                <li><a href="#post3" class="nav-link" data-post="post3">Algoritmos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Principal -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Blog Técnico: Estructura de Datos Grafos</h1>
+            <p class="subtitle">Aprende sobre Grafos, Algoritmos y sus Aplicaciones Prácticas</p>
+            <button class="btn btn-primary" onclick="scrollToSection('post1')">Comenzar</button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="container">
+        <!-- Inicio -->
+        <section id="inicio" class="post-section active">
+            <div class="posts-grid">
+                <h2>Contenidos Disponibles</h2>
+                <div class="grid">
+                    <article class="post-card" onclick="navigateToPost('post1')">
+                        <div class="card-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Introducción a los Grafos</h3>
+                        <p>Descubre qué son los grafos, sus componentes fundamentales y tipos principales.</p>
+                        <span class="read-more">Leer más →</span>
+                    </article>
+
+                    <article class="post-card" onclick="navigateToPost('post2')">
+                        <div class="card-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h3>Representación de Grafos</h3>
+                        <p>Explora las dos formas principales de representar grafos en memoria.</p>
+                        <span class="read-more">Leer más →</span>
+                    </article>
+
+                    <article class="post-card" onclick="navigateToPost('post3')">
+                        <div class="card-icon">
+                            <i class="fas fa-diagram-project"></i>
+                        </div>
+                        <h3>Algoritmos: BFS y DFS</h3>
+                        <p>Aprende los algoritmos fundamentales de recorrido de grafos.</p>
+                        <span class="read-more">Leer más →</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post 1: Introducción a los Grafos -->
+        <section id="post1" class="post-section">
+            <article class="post-content">
+                <button class="btn-back" onclick="navigateToPost('inicio')">← Volver</button>
+                <h1>Post #1: Introducción a los Grafos</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> 21 de Noviembre, 2025</span>
+                    <span><i class="fas fa-clock"></i> 8 min de lectura</span>
+                </div>
+
+                <h2>¿Qué es un Grafo?</h2>
+                <p>
+                    Un <strong>grafo</strong> es una estructura de datos que representa conexiones entre objetos.
+                    Formalmente, un grafo G = (V, E) consiste en:
+                </p>
+                <ul>
+                    <li><strong>V (Vértices o Nodos):</strong> Los objetos o puntos del grafo</li>
+                    <li><strong>E (Aristas o Ejes):</strong> Las conexiones entre los vértices</li>
+                </ul>
+
+                <h2>Conceptos Clave</h2>
+                <div class="concept-box">
+                    <h3>Nodos (Vértices)</h3>
+                    <p>Son los elementos fundamentales del grafo. Pueden representar personas, ciudades, 
+                    dispositivos, o cualquier entidad que queramos conectar.</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Aristas (Ejes)</h3>
+                    <p>Son las conexiones entre nodos. Una arista conecta dos nodos y puede tener una 
+                    dirección o un peso asociado.</p>
+                </div>
+
+                <h2>Tipos de Grafos</h2>
+                
+                <div class="type-box">
+                    <h3>1. Grafos Dirigidos (Directed Graphs)</h3>
+                    <p>Las aristas tienen una dirección específica. Se representan con flechas.</p>
+                    <pre><code>Ejemplo: Red de flujo de agua, relaciones de seguimiento en redes sociales</code></pre>
+                </div>
+
+                <div class="type-box">
+                    <h3>2. Grafos No Dirigidos (Undirected Graphs)</h3>
+                    <p>Las aristas no tienen dirección. La conexión es bidireccional.</p>
+                    <pre><code>Ejemplo: Red de amigos, red de carreteras</code></pre>
+                </div>
+
+                <div class="type-box">
+                    <h3>3. Grafos Ponderados (Weighted Graphs)</h3>
+                    <p>Las aristas tienen un peso o valor asociado (distancia, costo, probabilidad).</p>
+                    <pre><code>Ejemplo: Mapa con distancias entre ciudades, red con latencias</code></pre>
+                </div>
+
+                <h2>Diagrama Visual: Grafo No Dirigido</h2>
+                <canvas id="graphCanvas1" class="graph-canvas"></canvas>
+                <p class="canvas-description">Grafo con 5 nodos y sus conexiones. Los números representan pesos en las aristas.</p>
+            </article>
+        </section>
+
+        <!-- Post 2: Representación de Grafos -->
+        <section id="post2" class="post-section">
+            <article class="post-content">
+                <button class="btn-back" onclick="navigateToPost('inicio')">← Volver</button>
+                <h1>Post #2: Representación de Grafos</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> 21 de Noviembre, 2025</span>
+                    <span><i class="fas fa-clock"></i> 10 min de lectura</span>
+                </div>
+
+                <h2>¿Cómo Representar un Grafo en Memoria?</h2>
+                <p>
+                    Existen dos formas principales de representar un grafo en una computadora. 
+                    Cada una tiene ventajas y desventajas según el caso de uso.
+                </p>
+
+                <h2>1. Lista de Adyacencia</h2>
+                <p>Es una colección de listas donde cada nodo tiene una lista de nodos adyacentes.</p>
+                
+                <div class="representation-box">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>✓ Eficiente en espacio para grafos dispersos (pocas aristas)</li>
+                        <li>✓ Rápido para iterar sobre vecinos de un nodo</li>
+                        <li>✓ Fácil de implementar</li>
+                    </ul>
+                    <h3>Desventajas:</h3>
+                    <ul>
+                        <li>✗ Consulta lenta si queremos saber si existe una arista específica</li>
+                        <li>✗ Más lento para grafos densos</li>
+                    </ul>
+                </div>
+
+                <h3>Ejemplo de Lista de Adyacencia:</h3>
+                <pre><code>{
+  'A': ['B', 'C'],
+  'B': ['A', 'D'],
+  'C': ['A', 'E'],
+  'D': ['B'],
+  'E': ['C']
+}</code></pre>
+
+                <h2>2. Matriz de Adyacencia</h2>
+                <p>Es una matriz cuadrada donde cada celda [i][j] indica si existe una arista del nodo i al nodo j.</p>
+                
+                <div class="representation-box">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>✓ Consulta rápida O(1) para verificar si existe una arista</li>
+                        <li>✓ Fácil para buscar todas las aristas de un nodo</li>
+                        <li>✓ Eficiente para grafos densos (muchas aristas)</li>
+                    </ul>
+                    <h3>Desventajas:</h3>
+                    <ul>
+                        <li>✗ Usa mucho espacio O(V²) incluso si hay pocas aristas</li>
+                        <li>✗ Ineficiente para grafos dispersos</li>
+                    </ul>
+                </div>
+
+                <h3>Ejemplo de Matriz de Adyacencia:</h3>
+                <canvas id="matrixCanvas" class="graph-canvas"></canvas>
+
+                <h2>Comparación: Mismo Grafo</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Lista de Adyacencia</th>
+                                <th>Matriz de Adyacencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Espacio</strong></td>
+                                <td>O(V + E)</td>
+                                <td>O(V²)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verificar arista</strong></td>
+                                <td>O(grado)</td>
+                                <td>O(1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Agregar arista</strong></td>
+                                <td>O(1)</td>
+                                <td>O(1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ideal para</strong></td>
+                                <td>Grafos dispersos</td>
+                                <td>Grafos densos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- Post 3: Algoritmos BFS y DFS -->
+        <section id="post3" class="post-section">
+            <article class="post-content">
+                <button class="btn-back" onclick="navigateToPost('inicio')">← Volver</button>
+                <h1>Post #3: Algoritmos de Recorrido - BFS y DFS</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> 21 de Noviembre, 2025</span>
+                    <span><i class="fas fa-clock"></i> 12 min de lectura</span>
+                </div>
+
+                <h2>¿Qué son BFS y DFS?</h2>
+                <p>
+                    BFS (Búsqueda en Amplitud) y DFS (Búsqueda en Profundidad) son dos algoritmos fundamentales 
+                    para recorrer o explorar todos los nodos de un grafo.
+                </p>
+
+                <h2>1. BFS (Breadth-First Search)</h2>
+                <p><strong>Búsqueda en Amplitud:</strong> Explora el grafo nivel por nivel, comenzando desde un nodo inicial.</p>
+
+                <div class="algorithm-box">
+                    <h3>Características:</h3>
+                    <ul>
+                        <li>Usa una <strong>Cola (Queue)</strong> para guardar nodos</li>
+                        <li>Explora todos los vecinos antes de ir más profundo</li>
+                        <li>Complejidad: O(V + E)</li>
+                        <li>Útil para encontrar caminos más cortos</li>
+                    </ul>
+                </div>
+
+                <h3>Pseudocódigo BFS:</h3>
+                <pre><code>BFS(grafo, inicio):
+  cola = nueva Cola()
+  visitados = conjunto vacío
+  
+  cola.enqueue(inicio)
+  visitados.agregar(inicio)
+  
+  mientras cola no esté vacía:
+    nodo = cola.dequeue()
+    procesar(nodo)
+    
+    para cada vecino en adyacentes(nodo):
+      si vecino no está en visitados:
+        visitados.agregar(vecino)
+        cola.enqueue(vecino)</code></pre>
+
+                <h3>Visualización BFS:</h3>
+                <canvas id="bfsCanvas" class="graph-canvas"></canvas>
+                <p class="canvas-description">Orden de exploración: A → B → C → D → E → F → G</p>
+
+                <h2>2. DFS (Depth-First Search)</h2>
+                <p><strong>Búsqueda en Profundidad:</strong> Explora el grafo profundamente antes de retroceder.</p>
+
+                <div class="algorithm-box">
+                    <h3>Características:</h3>
+                    <ul>
+                        <li>Usa una <strong>Pila (Stack)</strong> o recursión</li>
+                        <li>Explora completamente una rama antes de pasar a otra</li>
+                        <li>Complejidad: O(V + E)</li>
+                        <li>Útil para detectar ciclos y ordenamiento topológico</li>
+                    </ul>
+                </div>
+
+                <h3>Pseudocódigo DFS:</h3>
+                <pre><code>DFS(grafo, nodo, visitados):
+  visitados.agregar(nodo)
+  procesar(nodo)
+  
+  para cada vecino en adyacentes(nodo):
+    si vecino no está en visitados:
+      DFS(grafo, vecino, visitados)</code></pre>
+
+                <h3>Visualización DFS:</h3>
+                <canvas id="dfsCanvas" class="graph-canvas"></canvas>
+                <p class="canvas-description">Orden de exploración: A → B → D → E → C → F → G</p>
+
+                <h2>Comparación BFS vs DFS</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>BFS</th>
+                                <th>DFS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Estructura</strong></td>
+                                <td>Cola</td>
+                                <td>Pila / Recursión</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Orden</strong></td>
+                                <td>Nivel por nivel</td>
+                                <td>Profundidad primero</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Complejidad</strong></td>
+                                <td>O(V + E)</td>
+                                <td>O(V + E)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mejor para</strong></td>
+                                <td>Camino más corto</td>
+                                <td>Detección de ciclos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Espacio</strong></td>
+                                <td>O(V) - Cola</td>
+                                <td>O(h) - h = altura</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Casos de Uso</h2>
+                <div class="use-case">
+                    <h3>BFS se usa para:</h3>
+                    <ul>
+                        <li>Encontrar el camino más corto en un grafo no ponderado</li>
+                        <li>Exploración de redes sociales (amigos más cercanos)</li>
+                        <li>Análisis de niveles en árboles</li>
+                    </ul>
+                </div>
+
+                <div class="use-case">
+                    <h3>DFS se usa para:</h3>
+                    <ul>
+                        <li>Detectar ciclos en un grafo</li>
+                        <li>Ordenamiento topológico</li>
+                        <li>Búsqueda de componentes conectadas</li>
+                        <li>Resolver problemas de backtracking</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Blog Técnico de Grafos. Estructura de Datos 2.</p>
+            <p>Desarrollado con <i class="fas fa-heart"></i> para estudiantes de Ciencias de la Computación</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/visualizations.js"></script>
+</body>
+</html>

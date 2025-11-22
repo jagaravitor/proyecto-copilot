@@ -1,0 +1,25 @@
+{
+  "name": "proyecto-copilot",
+  "version": "2.0.0",
+  "description": "Proyecto educativo con implementación de Cola y Blog técnico sobre Grafos",
+  "main": "src/Queue.js",
+  "scripts": {
+    "test": "node tests/Queue.test.js",
+    "start": "echo 'Abrir blog/index.html en navegador'",
+    "blog": "echo 'Blog disponible en blog/index.html'"
+  },
+  "keywords": [
+    "cola",
+    "queue",
+    "grafos",
+    "graphs",
+    "estructura de datos",
+    "blog técnico"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagaravitor/proyecto-copilot"
+  }
+}
